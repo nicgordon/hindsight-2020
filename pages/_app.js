@@ -6,6 +6,8 @@ import React from 'react';
 // import withData from '../util/apollo-client';
 import Layout from '../components/layout';
 
+import './reset.scss';
+
 class App extends NextApp {
   render() {
     // const { Component, pageProps, apollo } = this.props;
