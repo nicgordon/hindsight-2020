@@ -6,6 +6,7 @@ import React from 'react';
 // import withData from '../util/apollo-client';
 import Layout from '../components/layout';
 
+import 'antd/dist/antd.css';
 import './reset.scss';
 
 class App extends NextApp {
