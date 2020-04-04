@@ -7,7 +7,7 @@ import React from 'react';
 import Layout from '../components/layout';
 
 import 'antd/dist/antd.css';
-import './reset.scss';
+import '../styles/reset.scss';
 
 class App extends NextApp {
   render() {
