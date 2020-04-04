@@ -3,6 +3,7 @@ import { MenuOutlined } from '@ant-design/icons';
 import Link from 'next/link';
 import React, { useState } from 'react';
 
+import { HOME } from '../../constants/urls';
 import styles from './styles.module.scss';
 
 const Header = () => {
@@ -19,7 +20,7 @@ const Header = () => {
   return (
     <>
       <header className={styles.header}>
-        <Link href="/">
+        <Link href={HOME}>
           <a>Hindsight2020</a>
         </Link>
         <Button icon={<MenuOutlined />} onClick={handleMenuClick} type="ghost" />
