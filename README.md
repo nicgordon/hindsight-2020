@@ -5,7 +5,23 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+### Configuration
+Firstly, create a `.env` file by copying the example one and populating it.
+```bash
+cp .env.example .env
+```
+If you are setting up for the first time then you can choose any password and database name.
+
+### Database
+Spin up the postgres docker instance:
+```bash
+docker-compose up
+```
+
+You will then need to connect to the instance, create a database, and apply the schema found in [database/schema.sql]().
+
+### Web
+Run the development server:
 
 ```bash
 yarn dev
