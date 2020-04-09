@@ -8,6 +8,7 @@ export default async (req, res) => {
     const submissions = await db('submission').select();
     return res.json(submissions);
   } catch (error) {
+    console.error(error);
     return res.status(400).json({
       success: false,
       error: error.message,
