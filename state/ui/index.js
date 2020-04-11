@@ -9,7 +9,7 @@ const initialState = {
 };
 
 const uiSlice = createSlice({
-  name: 'todos',
+  name: 'ui',
   initialState,
   reducers: {
     toggleEditMode(state, action) {
