@@ -1,20 +1,23 @@
 import { Button, Drawer } from 'antd';
+import { connect } from 'react-redux';
 import { MenuOutlined } from '@ant-design/icons';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 import { HOME } from '../../constants/urls';
+import { toggleMenu as toggleMenuCreator } from '../../state/ui';
 import styles from './styles.module.scss';
 
-const Header = () => {
-  const [isNavOpen, setIsNavOpen] = useState(false);
-
-  const handleMenuClick = () => {
-    setIsNavOpen(!isNavOpen);
+const Header = ({ isMenuOpen, toggleMenu }) => {
+  const handleMenuButtonClick = () => {
+    toggleMenu();
   };
 
-  const handleNavCloseClick = () => {
-    setIsNavOpen(false);
+  const handleMenuCloseClick = () => {
+    toggleMenu({
+      isOpen: false,
+    });
   };
 
   return (
@@ -23,11 +26,24 @@ const Header = () => {
         <Link href={HOME}>
           <a>Hindsight2020</a>
         </Link>
-        <Button icon={<MenuOutlined />} onClick={handleMenuClick} type="ghost" />
+        <Button icon={<MenuOutlined />} onClick={handleMenuButtonClick} type="ghost" />
       </header>
-      <Drawer onClose={handleNavCloseClick} visible={isNavOpen} />
+      <Drawer onClose={handleMenuCloseClick} visible={isMenuOpen} />
     </>
   );
 };
 
-export default Header;
+const mapState = (state) => ({
+  isMenuOpen: state.ui.isMenuOpen,
+});
+
+const mapDispatch = {
+  toggleMenu: toggleMenuCreator,
+};
+
+Header.propTypes = {
+  isMenuOpen: PropTypes.bool.isRequired,
+  toggleMenu: PropTypes.func.isRequired,
+};
+
+export default connect(mapState, mapDispatch)(Header);
