@@ -1,6 +1,8 @@
 import React from 'react';
 import Head from 'next/head';
 
+import Map from '../components/map';
+
 const Home = () => (
   <div className="container">
     <Head>
@@ -8,7 +10,7 @@ const Home = () => (
     </Head>
 
     <main>
-      <h1 className="title">Welcome to Hindsight2020</h1>
+      <Map />
     </main>
   </div>
 );
